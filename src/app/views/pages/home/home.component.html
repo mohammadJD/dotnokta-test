@@ -1,0 +1,78 @@
+<header>
+
+  <div class="container">
+
+    <div class="profile">
+
+      <div class="profile-image">
+
+        <img [src]="profile?.profile_picture?('/assets/'+profile?.profile_picture):''" alt="">
+
+      </div>
+
+      <div class="profile-user-settings">
+
+        <h1 class="profile-user-name">{{profile?.name}}</h1>
+
+      </div>
+
+      <div class="profile-stats">
+
+        <ul>
+          <li><span class="profile-stat-count">Phone</span> {{profile?.phone}}</li>
+          <li><span class="profile-stat-count">Email</span> {{profile?.email}}</li>
+        </ul>
+
+      </div>
+
+      <div class="profile-bio">
+
+        <p><span class="profile-real-name"></span> {{profile?.bio}}</p>
+
+      </div>
+
+    </div>
+    <!-- End of profile section -->
+
+  </div>
+  <!-- End of container -->
+
+</header>
+
+<main>
+
+  <div class="container">
+
+    <div class="gallery">
+
+      <div class="gallery-item" tabindex="0" *ngFor='let item of profile?.album'>
+        <div class="img-wrapper">
+          <img [src]="'/assets/'+item.img" class="gallery-image" alt="">
+
+          <div class="gallery-item-info">
+            <div>
+              <p class="gallery-item-title">{{item.title}}</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item-bottom-section">
+          <div class="gallery-item-desc">
+            <p class="txt">{{item.description}}</p>
+          </div>
+          <div class="gallery-item-more">
+            <div class="fav" *ngIf="item.featured"><img class="fav-img" src="/assets/icons/heart.svg"></div>
+            <div class="date">{{item.date}}</div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+    <!-- End of gallery -->
+
+
+  </div>
+  <!-- End of container -->
+
+</main>
